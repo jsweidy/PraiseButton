@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/demo.css">
+</head>
+<body>
+    <div class="praise" id="praise">
+    	<div class="finger" id="finger"><img src="images/zan.png" /></div>
+    	<div class="num">0</div>
+    	<div class="add"><em>+1</em></div>
+    </div>
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bootcss.com/systemjs/0.21.3/system.js"></script>
+    <script type="text/javascript" src="unit/index.js"></script>
+    <script type="text/javascript">
+    	SystemJS.config({
+			baseURL: './script'
+		});
+		SystemJS.import('index-es.js').then(function(m){
+			$.extend({
+				thumb: m.default.Thumb
+			});
+			var finger = new $.thumb(0,$("#praise"));
+			finger.doClick();
+		})
+    </script>
+</body>
+</html>
